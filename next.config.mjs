@@ -6,12 +6,9 @@ const nextConfig = {
   // Trailing slash untuk static hosting
   trailingSlash: true,
   
-  // Ignore build errors (sesuai setup kamu)
+  // Ignore build errors
   typescript: {
     ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   },
   
   // Unoptimized images untuk static export
