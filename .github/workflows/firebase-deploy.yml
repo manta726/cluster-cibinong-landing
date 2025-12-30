@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout
+      # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Setup Node.js 20
+      # 2. Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -26,28 +26,30 @@ jobs:
         with:
           version: 9
 
-      # 4. Get pnpm store directory (untuk cache)
+      # 4. Get pnpm store directory
       - name: Get pnpm store directory
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-      # 5. Cache pnpm
+      # 5. Setup pnpm cache
       - name: Setup pnpm cache
         uses: actions/cache@v4
         with:
           path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/package.json') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      # 6. Install dependencies
+      # 6. Install dependencies (akan generate lockfile baru)
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
-      # 7. Build Next.js (static export → folder "out")
+      # 7. Build Next.js
       - name: Build
         run: pnpm build
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
 
       # 8. Deploy to Firebase Hosting
       - name: Deploy to Firebase Hosting
