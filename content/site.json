@@ -5,8 +5,9 @@
   "priceFrom": 500000000,
   "type": "40",
   "ctaPrimary": "Minta Pricelist via WhatsApp",
-  "whatsAppNumber": "6281234567890",
-  "whatsAppPrefill": "Halo, saya tertarik dengan Cluster Cibinong (Tipe 40). Nama: ____ | Budget: ____ | Butuh KPR: Ya/Tidak | Kapan survey: ____",
+  {
+  "whatsappNumber": "6281234567890",
+  "whatsappPrefill": "Halo, saya tertarik dengan Cluster Cibinong.\n\nNama: ___\nBudget: ___\nButuh KPR: Ya/Tidak\nRencana survey: ___\n\nMohon info pricelist & jadwal survey. Terima kasih!"
   "locationLabel": "Cibinong, Bogor",
   "locationAddress": "Jl. [Nama Jalan], Cibinong, Bogor",
   "googleMapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.9343951707215!2d106.83993297370071!3d-6.272357561399229!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f246b6c53d1b%3A0x3b349933a506d4e2!2sJl.%20Warga%2C%20Pejaten%20Bar.%2C%20Ps.%20Minggu%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2012510!5e0!3m2!1sid!2sid!4v1767085127489!5m2!1sid!2sid",
