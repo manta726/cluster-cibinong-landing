@@ -1,8 +1,9 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
+import { collection, addDoc, serverTimestamp } from "firebase/firestore"
+import { db } from "@/lib/firebase"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -27,22 +28,45 @@ export function LeadForm() {
     setLoading(true)
     setError("")
 
+    // Validasi sederhana
+    if (formData.name.trim().length < 2) {
+      setError("Nama minimal 2 karakter")
+      setLoading(false)
+      return
+    }
+
+    const phoneClean = formData.phone.replace(/[^\d]/g, "")
+    if (phoneClean.length < 10) {
+      setError("Nomor WhatsApp tidak valid (minimal 10 digit)")
+      setLoading(false)
+      return
+    }
+
+    if (!formData.budget || !formData.needKPR || !formData.timeline) {
+      setError("Mohon lengkapi semua field")
+      setLoading(false)
+      return
+    }
+
     try {
-      const response = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+      // Simpan ke Firestore
+      await addDoc(collection(db, "leads"), {
+        name: formData.name.trim(),
+        phone: phoneClean,
+        phoneFormatted: formData.phone, // simpan versi yang diinput user juga
+        budget: formData.budget,
+        needKPR: formData.needKPR,
+        timeline: formData.timeline,
+        createdAt: serverTimestamp(),
+        source: "landing-page",
+        status: "new", // untuk tracking di admin nanti
       })
 
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error || "Terjadi kesalahan")
-      }
-
+      // Redirect ke halaman thank you
       router.push("/thank-you")
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Terjadi kesalahan")
+      console.error("Error submitting lead:", err)
+      setError("Gagal mengirim data. Silakan coba lagi atau hubungi via WhatsApp.")
     } finally {
       setLoading(false)
     }
@@ -54,7 +78,9 @@ export function LeadForm() {
         <Card>
           <CardHeader>
             <CardTitle className="text-2xl text-center">Konsultasi Gratis</CardTitle>
-            <p className="text-center text-muted-foreground">Isi form di bawah dan tim kami akan menghubungi Anda</p>
+            <p className="text-center text-muted-foreground">
+              Isi form di bawah dan tim kami akan menghubungi Anda
+            </p>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -134,11 +160,20 @@ export function LeadForm() {
                 </Select>
               </div>
 
-              {error && <div className="text-destructive text-sm text-center">{error}</div>}
+              {error && (
+                <div className="text-destructive text-sm text-center bg-destructive/10 p-2 rounded">
+                  {error}
+                </div>
+              )}
 
               <Button type="submit" size="lg" className="w-full" disabled={loading}>
                 {loading ? "Mengirim..." : "Kirim Form Konsultasi"}
               </Button>
+
+              <p className="text-xs text-muted-foreground text-center">
+                Dengan mengirim form ini, Anda setuju dihubungi via WhatsApp untuk informasi 
+                pricelist dan jadwal survey lokasi.
+              </p>
             </form>
           </CardContent>
         </Card>
