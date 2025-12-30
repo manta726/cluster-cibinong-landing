@@ -1,6 +1,7 @@
 // lib/firebase.ts
-import { initializeApp, getApps } from "firebase/app";
-import { getAnalytics, isSupported } from "firebase/analytics";
+import { initializeApp, getApps, FirebaseApp } from "firebase/app";
+import { getFirestore, Firestore } from "firebase/firestore";
+import { getAnalytics, Analytics, isSupported } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCuNoIqpAyrc9zRRRhQ5WNoa34QO9HtFHU",
@@ -12,11 +13,20 @@ const firebaseConfig = {
   measurementId: "G-RDYT1CLNBX"
 };
 
-// Initialize Firebase (hanya jika belum ada)
-const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0];
+// Initialize Firebase App
+let app: FirebaseApp;
+if (getApps().length === 0) {
+  app = initializeApp(firebaseConfig);
+} else {
+  app = getApps()[0];
+}
+
+// Firestore
+const db: Firestore = getFirestore(app);
 
 // Analytics (hanya di browser)
-let analytics = null;
+let analytics: Analytics | null = null;
+
 if (typeof window !== "undefined") {
   isSupported().then((supported) => {
     if (supported) {
@@ -25,4 +35,4 @@ if (typeof window !== "undefined") {
   });
 }
 
-export { app, analytics };
+export { app, db, analytics };
