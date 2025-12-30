@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { FirebaseAnalytics } from "@/components/firebase-analytics"
 import "./globals.css"
 
 const geistSans = Geist({ 
@@ -57,7 +56,7 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: "/og-image.jpg", // Buat image 1200x630px
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Cluster Cibinong - Perumahan Modern",
@@ -98,11 +97,7 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-icon.png",
   },
-  manifest: "/manifest.json", // Optional: PWA manifest
-  verification: {
-    // Tambahkan setelah verify di Google Search Console
-    // google: "your-verification-code",
-  },
+  manifest: "/manifest.json",
 }
 
 export const viewport = {
@@ -123,7 +118,6 @@ export default function RootLayout({
   return (
     <html lang="id" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
-        {/* Structured Data untuk Google */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -174,7 +168,6 @@ export default function RootLayout({
       <body className={`font-sans antialiased`}>
         {children}
         <Analytics />
-        <FirebaseAnalytics />
       </body>
     </html>
   )
