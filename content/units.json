@@ -1,0 +1,92 @@
+{
+  "units": [
+    {
+      "id": "A1",
+      "name": "Unit A1",
+      "type": "Tipe 40/60",
+      "landSize": 60,
+      "buildingSize": 40,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 525000000,
+      "status": "available"
+    },
+    {
+      "id": "A2",
+      "name": "Unit A2",
+      "type": "Tipe 40/60",
+      "landSize": 60,
+      "buildingSize": 40,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 525000000,
+      "status": "available"
+    },
+    {
+      "id": "A3",
+      "name": "Unit A3",
+      "type": "Tipe 40/72",
+      "landSize": 72,
+      "buildingSize": 40,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 550000000,
+      "status": "booked"
+    },
+    {
+      "id": "B1",
+      "name": "Unit B1",
+      "type": "Tipe 40/60",
+      "landSize": 60,
+      "buildingSize": 40,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 520000000,
+      "status": "available"
+    },
+    {
+      "id": "B2",
+      "name": "Unit B2",
+      "type": "Tipe 40/60",
+      "landSize": 60,
+      "buildingSize": 40,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 520000000,
+      "status": "available"
+    },
+    {
+      "id": "B3",
+      "name": "Unit B3",
+      "type": "Tipe 40/72",
+      "landSize": 72,
+      "buildingSize": 40,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 545000000,
+      "status": "booked"
+    },
+    {
+      "id": "C1",
+      "name": "Unit C1",
+      "type": "Tipe 40/60",
+      "landSize": 60,
+      "buildingSize": 40,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 515000000,
+      "status": "available"
+    },
+    {
+      "id": "C2",
+      "name": "Unit C2",
+      "type": "Tipe 40/72",
+      "landSize": 72,
+      "buildingSize": 40,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "price": 540000000,
+      "status": "available"
+    }
+  ]
+}
