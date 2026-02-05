@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Cluster Cibinong - Rumah Nyaman Mulai 500 Jutaan",
   description:
     "Cluster nyaman di Cibinong dengan tipe 40 fungsional untuk keluarga muda. Mulai 500 jutaan dengan fasilitas lengkap dan proses KPR mudah.",
-  generator: "v0.app",
+  generator: "sabndev",
   icons: {
     icon: [
       {
