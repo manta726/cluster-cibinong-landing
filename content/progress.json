@@ -1,0 +1,22 @@
+{
+  "updates": [
+    {
+      "date": "15 Januari 2025",
+      "title": "Pembangunan Fase 1 Dimulai",
+      "summary": "Pekerjaan pembangunan fase 1 telah dimulai. Saat ini sedang dalam tahap pengerjaan pondasi untuk 10 unit pertama. Target penyelesaian pondasi adalah akhir bulan ini.",
+      "images": ["/placeholder.svg?height=300&width=400", "/placeholder.svg?height=300&width=400"]
+    },
+    {
+      "date": "8 Januari 2025",
+      "title": "Infrastruktur Cluster Selesai",
+      "summary": "Pekerjaan infrastruktur cluster telah selesai 100%. Meliputi jalan cluster, drainase, instalasi listrik, dan jaringan air bersih. Cluster siap untuk tahap pembangunan rumah.",
+      "images": ["/placeholder.svg?height=300&width=400", "/placeholder.svg?height=300&width=400"]
+    },
+    {
+      "date": "28 Desember 2024",
+      "title": "Persiapan Lahan Selesai",
+      "summary": "Proses persiapan lahan dan perataan tanah telah selesai. Site plan cluster sudah diimplementasikan dengan marking untuk setiap unit dan jalan cluster.",
+      "images": ["/placeholder.svg?height=300&width=400", "/placeholder.svg?height=300&width=400"]
+    }
+  ]
+}
