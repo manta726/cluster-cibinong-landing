@@ -17,7 +17,7 @@ export function Navbar() {
               <Home size={20} />
             </div>
             <span className="text-xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              Cluster Cibinong
+              Laman Davindo Property
             </span>
           </Link>
 
